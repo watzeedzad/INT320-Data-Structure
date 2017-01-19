@@ -36,7 +36,7 @@ public class SimpleArrayList<E> extends AbstractList<E> implements List<E> {
     @Override
     public void add(int index, E element) {
         ensureCapacity(size+1);
-        System.arraycopy(element, index, element, index + 1, size - index);
+        System.arraycopy(this.element, index, this.element, index + 1, size - index);
         this.element[index] = element;
         size = size + 1;
     }
@@ -48,21 +48,21 @@ public class SimpleArrayList<E> extends AbstractList<E> implements List<E> {
     }
 
     private void ensureCapacity(int minSize) {
-        if (size + 1 > element.length) {
+        if (minSize > element.length) {
             if (size == 0) {
                 element = (E[]) new Object[DEFAULT_CAPACITY];
             } else {
                 E[] oldElement = element;
                 int newCapacity = size * 3 / 2 + 1;
                 element = (E[]) new Object[newCapacity];
-                System.arraycopy(oldElement, 0, newCapacity, 0, size);
+                System.arraycopy(oldElement, 0, element, 0, size);
             }
         }
     }
 
     @Override
     public boolean add(E e) {
-        ensureCapacity(size);
+        ensureCapacity(size+1);
         element[size] = e;
         size = size + 1;
         return true;
