@@ -23,5 +23,7 @@ public class TestList {
         for (int i = 0; i < sa.size(); i++) {
             System.out.println(sa.get(i) + ",");
         }
+        sa.add(1, 111);
+        System.out.println("\b\b");
     }
 }
