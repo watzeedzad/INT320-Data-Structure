@@ -25,24 +25,43 @@ public class SimpleArrayList<E> extends AbstractList<E> implements List<E> {
 
     @Override
     public int indexOf(Object o) {
-        return super.indexOf(o); //To change body of generated methods, choose Tools | Templates.
+        if (o == null) {
+            for (int i = 0; i < size; i++) {
+                if (get(i) == null) {
+                    return i;
+                }
+            }
+        } else {
+            for (int i = 0; i < size; i++) {
+                if (o.equals(get(i))) {
+                    return i;
+                }
+            }
+        }
+        return -1;
     }
 
     @Override
     public E remove(int index) {
-        return super.remove(index); //To change body of generated methods, choose Tools | Templates.
+        E e = element[index];
+        if (index >= 0 && index < size - 1) {
+            System.arraycopy(element, index + 1, element, index + 1, size - index);
+        }
+        element[size] = null;
+        size = size - 1;
+        return e;
     }
 
     @Override
     public void add(int index, E element) {
-        ensureCapacity(size+1);
+        ensureCapacity(size + 1);
         System.arraycopy(this.element, index, this.element, index + 1, size - index);
         this.element[index] = element;
         size = size + 1;
     }
 
     @Override
-    
+
     public E set(int index, E element) {
         return super.set(index, element); //To change body of generated methods, choose Tools | Templates.
     }
@@ -62,7 +81,7 @@ public class SimpleArrayList<E> extends AbstractList<E> implements List<E> {
 
     @Override
     public boolean add(E e) {
-        ensureCapacity(size+1);
+        ensureCapacity(size + 1);
         element[size] = e;
         size = size + 1;
         return true;
