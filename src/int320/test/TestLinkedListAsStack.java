@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package int320;
+package int320.test;
 
+import int320.SimpleStack;
 import java.util.LinkedList;
 
 /**
