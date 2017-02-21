@@ -5,6 +5,7 @@
  */
 package int320;
 
+import java.util.Collections;
 import java.util.LinkedList;
 
 /**
@@ -64,16 +65,15 @@ public class BinarySearchTree<K extends Comparable<K>, V> {
             }
             x.rightChild.parent = x.parent;
 
-        } else { // delete leaf node
-            if (x.parent != null) {  // node to be delete is not root 
-                if (x.parent.leftChild == x) {
-                    x.parent.leftChild = null;
-                } else {
-                    x.parent.rightChild = null;
-                }
+        } else // delete leaf node
+        if (x.parent != null) {  // node to be delete is not root 
+            if (x.parent.leftChild == x) {
+                x.parent.leftChild = null;
             } else {
-                root = null;
+                x.parent.rightChild = null;
             }
+        } else {
+            root = null;
         }
         return value;
     }
@@ -114,11 +114,31 @@ public class BinarySearchTree<K extends Comparable<K>, V> {
         }
     }
 
+    public V find2ndMin() {
+        if (root == null) {
+            return null;
+        } else {
+            return root.find2ndMin(root).value;
+        }
+    }
+
+    public V find2ndMax() {
+        if (root == null) {
+            return null;
+        } else {
+            return root.find2ndMax(root).value;
+        }
+    }
+    
     public void put(K key, V value) {
         if (key == null) {
             throw new NullPointerException("Key is null");
         }
         root = add(root, key, value, null);
+    }
+
+    public void reverseBreathFirst() {
+        root.reverseBreathFirst(root);
     }
 
     public void breathFirst() {
@@ -192,6 +212,27 @@ public class BinarySearchTree<K extends Comparable<K>, V> {
             System.out.println("\b\b\b\n");
         }
 
+        public void reverseBreathFirst(Entry<K, V> x) {
+            LinkedList<Entry<K, V>> q = new LinkedList();
+            LinkedList stack = new LinkedList();
+            q.add(x);
+            while (!q.isEmpty()) {
+                Entry<K, V> temp = q.remove();
+                stack.add(temp);
+                if (temp.leftChild != null) {
+                    q.add(temp.leftChild);
+                }
+                if (temp.rightChild != null) {
+                    q.add(temp.rightChild);
+                }
+            }
+            Collections.reverse(stack);
+            while (!stack.isEmpty()) {
+                System.out.print(stack.pop() + ", ");
+            }
+            System.out.println("\b\b\b\n");
+        }
+
         public void preOrder(Entry<K, V> x) {
             if (x != null) {
                 System.out.print(x + ", ");
@@ -229,6 +270,22 @@ public class BinarySearchTree<K extends Comparable<K>, V> {
                 return x;
             } else {
                 return findMax(x.rightChild);
+            }
+        }
+        
+        public Entry<K, V> find2ndMin(Entry<K, V> x) {
+            if (x.leftChild == null) {
+                return x.parent;
+            } else {
+                return find2ndMin(x.leftChild);
+            }
+        }
+
+        public Entry<K, V> find2ndMax(Entry<K, V> x) {
+            if (x.rightChild == null) {
+                return x.parent;
+            } else {
+                return find2ndMax(x.rightChild);
             }
         }
     }

@@ -160,7 +160,7 @@ public class SimpleLinkedList<E> extends AbstractList<E> implements List<E> {
 
     @Override
     public E remove(int index) {
-        if (0 < index || index > size) {
+        if (0 > index || index > size) {
             throw new IndexOutOfBoundsException();
         } else if (index == 0) {
             E element = head.dataElement;
@@ -181,6 +181,11 @@ public class SimpleLinkedList<E> extends AbstractList<E> implements List<E> {
             E element = temp.dataElement;
             return element;
         }
+    }
+
+    @Override
+    public E set(int index, E element) {
+        return super.set(index, element); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

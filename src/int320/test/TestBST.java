@@ -25,18 +25,22 @@ public class TestBST {
         bst.put(101, "IT FUN");
         System.out.println("Breath First : ");
         bst.breathFirst();
-        System.out.println("Pre Order : ");
-        bst.preOrder();
-        System.out.println("In Order : ");
-        bst.inOrder();
-        System.out.println("Post Order : ");
-        bst.postOrder();
+//        System.out.println("Pre Order : ");
+//        bst.preOrder();
+//        System.out.println("In Order : ");
+//        bst.inOrder();
+//        System.out.println("Post Order : ");
+//        bst.postOrder();
         System.out.println("This is min value : " + bst.findMin());
         System.out.println("This is max value : " + bst.findMax());
-        System.out.println(bst.get(106));
-        System.out.println(bst.get(9999));
-        System.out.println(bst.remove(102));
-        System.out.println("Breath First after remove 102 (root node) : ");
-        bst.breathFirst();
+        System.out.println("This is 2ndmin value : " + bst.find2ndMin());
+        System.out.println("This is 2ndmax value : " + bst.find2ndMax());
+//        System.out.println(bst.get(106));
+//        System.out.println(bst.get(9999));
+//        System.out.println(bst.remove(102));
+//        System.out.println("Breath First after remove 102 (root node) : ");
+//        bst.breathFirst();
+        System.out.println("Reverse : ");
+        bst.reverseBreathFirst();
     }
 }

@@ -19,13 +19,23 @@ public class TestList {
         List<Integer> sa = new SimpleLinkedList();
         sa.add(900);
         sa.add(101);
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10; i++) {
             sa.add((int) (Math.random() * 100) + 10);
         }
         sa.add(999);
         sa.add(909);
         for (int i = 0; i < sa.size(); i++) {
-            System.out.println(sa.get(i) + ",");
+            System.out.print(sa.get(i) + ", ");
+        }
+        sa.remove(0);
+        sa.remove(0);
+        sa.remove(0);
+        sa.remove(sa.size()-1);
+        sa.remove(sa.size()-1);
+        sa.remove(sa.size()-1);
+        System.out.println("\nAfter remover : ");
+        for (int i = 0; i < sa.size(); i++) {
+            System.out.print(sa.get(i) + ", ");
         }
         //sa.add(1, 111);
         System.out.println("\b\b");
