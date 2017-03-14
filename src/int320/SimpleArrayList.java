@@ -44,10 +44,10 @@ public class SimpleArrayList<E> extends AbstractList<E> implements List<E> {
     @Override
     public E remove(int index) {
         E e = element[index];
-        if (index >= 0 && index < size - 1) {
-            System.arraycopy(element, index + 1, element, index + 1, size - index);
-        }
         element[size] = null;
+        if (index >= 0 && index < size - 1) {
+            System.arraycopy(element, index + 1, element, index, size - index);
+        }
         size = size - 1;
         return e;
     }

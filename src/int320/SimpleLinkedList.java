@@ -178,6 +178,7 @@ public class SimpleLinkedList<E> extends AbstractList<E> implements List<E> {
                 temp = temp.next;
             }
             temp.previous.next = temp.next;
+            temp.next.previous = temp.previous;
             E element = temp.dataElement;
             return element;
         }
