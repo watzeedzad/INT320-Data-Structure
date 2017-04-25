@@ -43,7 +43,7 @@ public class Edge<T> {
 
     @Override
     public String toString() {
-        return fromNode + " --> " + toNode;
+        return fromNode + " --> " + toNode + "("+weight+")";
     }
 
 }
