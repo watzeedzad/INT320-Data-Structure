@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package int320.test;
+package PriorityQueue;
 
-import int320.PriorityQueue;
+import PriorityQueue.PriorityQueue;
 
 /**
  *
