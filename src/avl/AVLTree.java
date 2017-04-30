@@ -74,7 +74,7 @@ public class AVLTree<K extends Comparable<K>, V> {
                 }
             }
         } else if (node.leftChild != null && node.rightChild != null) {  // 2 childrens
-            if (node.getHeight(node.leftChild) > node.getHeight(node.rightChild)) {
+            if (node.getHeight(node.leftChild) >= node.getHeight(node.rightChild)) {
                 Entry<K, V> tmp = node.findMax(node.leftChild);
                 node.key = tmp.key;
                 node.value = tmp.value;

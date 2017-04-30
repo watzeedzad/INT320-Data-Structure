@@ -5,11 +5,9 @@
  */
 package PriorityQueue;
 
-import PriorityQueue.PriorityQueue;
-
 /**
  *
- * @author jiraw
+ * p@author jiraw
  */
 public class TestPriorityQueue {
 
@@ -18,9 +16,11 @@ public class TestPriorityQueue {
         pq.offer(35);
         pq.offer(70);
         pq.offer(25);
+        System.out.println(pq);
         pq.offer(39);
         pq.offer(72);
         pq.offer(11);
+        System.out.println(pq);
         pq.offer(90);
         pq.offer(8);
         pq.offer(11);

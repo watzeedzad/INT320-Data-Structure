@@ -82,14 +82,17 @@ public class TestAVL {
         avl.breathFirst();
         avl.remove(50);
         avl.breathFirst(); // 200 100 300
+        avl.inOrder();
         
         avl.put(100, "100");
         avl.put(50, "50");
         avl.put(200, "200");
         avl.put(150, "150");
         avl.breathFirst(); 
+        avl.inOrder();
         avl.remove(50); // หมุนขวา หมุนซ้าย
         avl.breathFirst(); // 150 100 200
+        avl.inOrder();
         
 //1                      200
 //1        100                  300     
