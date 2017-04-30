@@ -14,7 +14,7 @@ import PriorityQueue.PriorityQueue;
 public class TestPriorityQueue {
 
     public static void main(String[] args) {
-        PriorityQueue<Integer> pq = new PriorityQueue(15, null, PriorityQueue.HeapType.MAX_HEAP);
+        PriorityQueue<Integer> pq = new PriorityQueue(15, null, PriorityQueue.HeapType.MIN_HEAP);
         pq.offer(35);
         pq.offer(70);
         pq.offer(25);
