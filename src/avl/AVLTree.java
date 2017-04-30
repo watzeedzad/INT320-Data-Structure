@@ -324,7 +324,7 @@ public class AVLTree<K extends Comparable<K>, V> {
                     q.add(tmp.rightChild);
                 }
             }
-            System.out.println("\b\b\b\n");
+            System.out.println("\b\b\n");
         }
 
         public void preOrder(Entry<K, V> x) {

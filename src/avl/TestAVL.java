@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package AVL_Tree;
+package avl;
 
 /**
  *
@@ -11,7 +11,7 @@ package AVL_Tree;
  */
 public class TestAVL {
     public static void main(String[] args) {
-        AVLTreeCopyCode<Integer,String> avl = new AVLTreeCopyCode();
+        AVLTree<Integer,String> avl = new AVLTree();
 //        avl.put(100, "100");
 //        System.out.println("Height = "+avl.getHeight()); //0
 //        avl.put(200, "200");
@@ -80,7 +80,7 @@ public class TestAVL {
         avl.put(200, "200");
         avl.put(300, "300");
         avl.breathFirst();
-        avl.removeRecursion(50);
+        avl.remove(50);
         avl.breathFirst(); // 200 100 300
         
         avl.put(100, "100");
@@ -88,7 +88,7 @@ public class TestAVL {
         avl.put(200, "200");
         avl.put(150, "150");
         avl.breathFirst(); 
-        avl.removeRecursion(50); // หมุนขวา หมุนซ้าย
+        avl.remove(50); // หมุนขวา หมุนซ้าย
         avl.breathFirst(); // 150 100 200
         
 //1                      200

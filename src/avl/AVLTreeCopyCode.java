@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package AVL_Tree;
+package avl;
 
 import java.util.LinkedList;
 
@@ -88,7 +88,7 @@ public class AVLTreeCopyCode <K extends Comparable<K>, V> {
             return new Entry(key, value, parent);
         }
         int compare = key.compareTo(x.key); // เอา key ที่จะ add มาเทียบกับ root
-        if (compare < 0) { //แอดทางซ้าย ไม่มีทางที่ขวาขวาจะสูงกว่า
+        if (compare > 0) { //แอดทางซ้าย ไม่มีทางที่ขวาขวาจะสูงกว่า
             x.leftChild = add(x.leftChild, key, value, x);
             //เชคว่าด้านซ้ายของ x / ขวา ของ x balance ไหม
             // ลูกซ้ายต้องมีแน่ๆ            
@@ -109,7 +109,7 @@ public class AVLTreeCopyCode <K extends Comparable<K>, V> {
                 }
             }                        
             
-        } else if (compare > 0) {
+        } else if (compare < 0) {
             x.rightChild = add(x.rightChild, key, value, x);
             int balanceFactor = x.getHeight(x.leftChild) - x.getHeight(x.rightChild);
             // ขวามากกว่า จะติดลบ
